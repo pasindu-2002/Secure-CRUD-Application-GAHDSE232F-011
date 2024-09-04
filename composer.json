@@ -1,0 +1,15 @@
+{
+    "name": "vendor/secure-crud",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\SecureCrud\\": "public/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pasindu Aluthwalahewa",
+            "email": "87941322+pasindu-2002@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
