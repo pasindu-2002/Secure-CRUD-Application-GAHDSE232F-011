@@ -1,0 +1,28 @@
+.footer {
+    background-color: #343a40;
+}
+
+.footer h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer p,
+.footer a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: #adb5bd;
+}
+
+.footer .social-icons i {
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer .social-icons i:hover {
+    color: #adb5bd;
+}
