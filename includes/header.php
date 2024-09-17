@@ -63,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <a href = "login.php" class="btn btn-danger" onclick="performLogout()">Logout</a>
+                    <a href = "http://localhost/Secure-CRUD/public/index.php?action=logout" class="btn btn-danger" >Logout</a>
                 </div>
             </div>
         </div>
@@ -72,11 +72,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script>
-        function performLogout() {
-            // Replace this URL with your actual logout URL or action
-            window.location.href = '/logout';
-        }
-    </script>
+    
 </body>
 </html>

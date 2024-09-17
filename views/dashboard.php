@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -295,125 +295,125 @@
 		}
 
 		/* Sidebar Styles */
-        #sidebar {
-            min-width: 220px;
-            max-width: 220px;
-            background: #2c3e50;
-            color: #ecf0f1;
-            transition: all 0.3s;
-            font-family: 'Arial', sans-serif;
-        }
+		#sidebar {
+			min-width: 220px;
+			max-width: 220px;
+			background: #2c3e50;
+			color: #ecf0f1;
+			transition: all 0.3s;
+			font-family: 'Arial', sans-serif;
+		}
 
-        #sidebar .sidebar-header {
-            padding: 25px;
-            background: #34495e;
-            text-align: center;
-            border-bottom: 1px solid #2c3e50;
-        }
+		#sidebar .sidebar-header {
+			padding: 25px;
+			background: #34495e;
+			text-align: center;
+			border-bottom: 1px solid #2c3e50;
+		}
 
-        #sidebar .sidebar-header h3 {
-            margin: 0;
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #ecf0f1;
-        }
+		#sidebar .sidebar-header h3 {
+			margin: 0;
+			font-size: 1.4em;
+			font-weight: 600;
+			color: #ecf0f1;
+		}
 
-        #sidebar ul.components {
-            padding: 15px 0;
-            list-style: none;
-            margin: 0;
-        }
+		#sidebar ul.components {
+			padding: 15px 0;
+			list-style: none;
+			margin: 0;
+		}
 
-        #sidebar ul li {
-            padding: 12px 20px;
-            font-size: 1.1em;
-            display: block;
-            transition: all 0.3s;
-            border-bottom: 1px solid #2c3e50;
-        }
+		#sidebar ul li {
+			padding: 12px 20px;
+			font-size: 1.1em;
+			display: block;
+			transition: all 0.3s;
+			border-bottom: 1px solid #2c3e50;
+		}
 
-        #sidebar ul li:last-child {
-            border-bottom: none;
-        }
+		#sidebar ul li:last-child {
+			border-bottom: none;
+		}
 
-        #sidebar ul li a {
-            color: #bdc3c7;
-            display: block;
-            text-decoration: none;
-            transition: color 0.3s, background 0.3s;
-        }
+		#sidebar ul li a {
+			color: #bdc3c7;
+			display: block;
+			text-decoration: none;
+			transition: color 0.3s, background 0.3s;
+		}
 
-        #sidebar ul li a i {
-            margin-right: 10px;
-        }
+		#sidebar ul li a i {
+			margin-right: 10px;
+		}
 
-        #sidebar ul li a:hover, #sidebar ul li.active > a {
-            color: #ecf0f1;
-            background: #1abc9c;
-            border-radius: 5px;
-        }
+		#sidebar ul li a:hover,
+		#sidebar ul li.active>a {
+			color: #ecf0f1;
+			background: #1abc9c;
+			border-radius: 5px;
+		}
 
-        #sidebar ul li.active > a {
-            background: #16a085;
-        }
+		#sidebar ul li.active>a {
+			background: #16a085;
+		}
 
-        /* Content Styles */
-        #content {
-            width: 100%;
-            padding: 30px;
-            transition: all 0.3s;
-            background: #f8f9fa;
-            min-height: 100vh;
-        }
+		/* Content Styles */
+		#content {
+			width: 100%;
+			padding: 30px;
+			transition: all 0.3s;
+			background: #f8f9fa;
+			min-height: 100vh;
+		}
 
-        /* Navbar Toggle Button */
-        #sidebarCollapse {
-            width: 45px;
-            height: 45px;
-            background: #2c3e50;
-            color: #ecf0f1;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            border-radius: 5px;
-        }
+		/* Navbar Toggle Button */
+		#sidebarCollapse {
+			width: 45px;
+			height: 45px;
+			background: #2c3e50;
+			color: #ecf0f1;
+			cursor: pointer;
+			transition: all 0.3s;
+			border: none;
+			position: absolute;
+			top: 15px;
+			left: 15px;
+			border-radius: 5px;
+		}
 
-        #sidebarCollapse:hover {
-            background: #34495e;
-        }
+		#sidebarCollapse:hover {
+			background: #34495e;
+		}
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            #sidebar {
-                min-width: 0;
-                max-width: 0;
-                display: none;
-            }
+		/* Responsive Styles */
+		@media (max-width: 768px) {
+			#sidebar {
+				min-width: 0;
+				max-width: 0;
+				display: none;
+			}
 
-            #sidebar.active {
-                min-width: 250px;
-                max-width: 250px;
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100%;
-                z-index: 999;
-            }
+			#sidebar.active {
+				min-width: 250px;
+				max-width: 250px;
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 100%;
+				z-index: 999;
+			}
 
-            #content {
-                width: 100%;
-                padding: 20px;
-            }
+			#content {
+				width: 100%;
+				padding: 20px;
+			}
 
-            #sidebarCollapse {
-                display: block;
-            }
-        }
-
+			#sidebarCollapse {
+				display: block;
+			}
+		}
 	</style>
 	<script>
 		$(document).ready(function () {
@@ -455,23 +455,17 @@
 		</div>
 		<ul class="components">
 			<li class="active">
-				<a href="#"><i class="fas fa-home"></i> Home</a>
+				<a href="dashboard.php"><i class="fas fa-home"></i> Product</a>
 			</li>
+
 			<li>
-				<a href="users.php"><i class="fas fa-user-friends"></i> Employees</a>
+				<a href="users.php"><i class="fas fa-user-friends"></i> Users</a>
 			</li>
+
 			<li>
 				<a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
 			</li>
-			<li>
-				<a href="#"><i class="fas fa-file-alt"></i> Reports</a>
-			</li>
-			<li>
-				<a href="#"><i class="fas fa-cog"></i> Settings</a>
-			</li>
-			<li>
-				<a href="#"><i class="fas fa-question-circle"></i> Help</a>
-			</li>
+
 		</ul>
 	</nav>
 
@@ -485,9 +479,7 @@
 						</div>
 						<div class="col-sm-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-									class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-							<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
-									class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+									class="material-icons">&#xE147;</i> <span>Add New User</span></a>
 						</div>
 					</div>
 				</div>
@@ -501,10 +493,9 @@
 								</span>
 							</th>
 							<th>Name</th>
-							<th>Price</th>
-							<th>Description</th>
-							<th>Phone</th>
-							<th>Actions</th>
+							<th>email</th>
+							<th>role</th>
+							<th>tele</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -620,7 +611,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Employee</h4>
+					<h4 class="modal-title">Add User</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

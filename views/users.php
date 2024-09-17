@@ -455,22 +455,14 @@
 		</div>
 		<ul class="components">
 			<li>
-				<a href="index.php"><i class="fas fa-home"></i> Home</a>
+				<a href="dashboard.php"><i class="fas fa-home"></i> Product</a>
 			</li>
+
 			<li class="active">
-				<a href="users.php"><i class="fas fa-user-friends"></i> Employees</a>
+				<a href="users.php"><i class="fas fa-user-friends"></i> Users</a>
 			</li>
 			<li>
 				<a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
-			</li>
-			<li>
-				<a href="#"><i class="fas fa-file-alt"></i> Reports</a>
-			</li>
-			<li>
-				<a href="#"><i class="fas fa-cog"></i> Settings</a>
-			</li>
-			<li>
-				<a href="#"><i class="fas fa-question-circle"></i> Help</a>
 			</li>
 		</ul>
 	</nav>
@@ -485,40 +477,30 @@
 						</div>
 						<div class="col-sm-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-									class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-							<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
-									class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+									class="material-icons">&#xE147;</i> <span>Add New User</span></a>
 						</div>
 					</div>
 				</div>
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-							</th>
 							<th>Name</th>
 							<th>Email</th>
-							<th>Address</th>
+							<th>Password</th>
 							<th>Phone</th>
-							<th>Actions</th>
+							<th>Role</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
-							</td>
+							
 							<td>Thomas Hardy</td>
 							<td>thomashardy@mail.com</td>
-							<td>89 Chiaroscuro Rd, Portland, USA</td>
+							<td>abc123</td>
 							<td>(171) 555-2222</td>
+							<td>User</td>
+							<td>Active</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -527,16 +509,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox2" name="options[]" value="1">
-									<label for="checkbox2"></label>
-								</span>
-							</td>
+							
 							<td>Dominique Perrier</td>
 							<td>dominiqueperrier@mail.com</td>
-							<td>Obere Str. 57, Berlin, Germany</td>
+							<td>abc123</td>
 							<td>(313) 555-5735</td>
+							<td>User</td>
+							<td>Active</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -545,16 +524,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox3" name="options[]" value="1">
-									<label for="checkbox3"></label>
-								</span>
-							</td>
+							
 							<td>Maria Anders</td>
 							<td>mariaanders@mail.com</td>
-							<td>25, rue Lauriston, Paris, France</td>
+							<td>abc123</td>
 							<td>(503) 555-9931</td>
+							<td>User</td>
+							<td>Active</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -563,16 +539,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox4" name="options[]" value="1">
-									<label for="checkbox4"></label>
-								</span>
-							</td>
+							
 							<td>Fran Wilson</td>
 							<td>franwilson@mail.com</td>
-							<td>C/ Araquil, 67, Madrid, Spain</td>
+							<td>abc123</td>
 							<td>(204) 619-5731</td>
+							<td>User</td>
+							<td>Active</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -581,16 +554,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox5" name="options[]" value="1">
-									<label for="checkbox5"></label>
-								</span>
-							</td>
+							
 							<td>Martin Blank</td>
 							<td>martinblank@mail.com</td>
-							<td>Via Monte Bianco 34, Turin, Italy</td>
+							<td>abc123</td>
 							<td>(480) 631-2097</td>
+							<td>User</td>
+							<td>Active</td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
 										data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -626,37 +596,47 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form>
+
+					<form action="http://localhost/Secure-CRUD/public/index.php?action=register" method="POST">
+
 						<div class="form-group">
 							<label>Name</label>
-							<input type="text" class="form-control" placeholder="Enter employee name">
+							<input type="text" name="name" class="form-control" placeholder="Enter employee name" required>
 						</div>
+
 						<div class="form-group">
 							<label>Email</label>
-							<input type="email" class="form-control" placeholder="Enter employee email">
+							<input type="email" name="email" class="form-control" placeholder="Enter employee email" required>
 						</div>
+
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="text" class="form-control" placeholder="Enter employee phone">
+							<input type="number" name="tele" class="form-control" placeholder="Enter employee Tele No" required>
 						</div>
+
 						<div class="form-group">
-							<label>Salary</label>
-							<input type="text" class="form-control" placeholder="Enter employee salary">
+							<label>Password</label>
+							<input type="text" name="password" class="form-control" placeholder="Enter employee Password" required>
 						</div>
+
 						<div class="form-group">
-							<label>Department</label>
-							<input type="text" class="form-control" placeholder="Enter department">
+							<label for="role">Role</label>
+							<select name="role" class="form-control" name="role" id="role" required>
+								<option value="admin">Admin</option>
+								<option value="editor">Editor</option>
+								<option value="user">User</option>
+							</select>
 						</div>
-						<div class="form-group">
-							<label>Position</label>
-							<input type="text" class="form-control" placeholder="Enter position">
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Save</button>
 						</div>
+
 					</form>
+
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
+				
 			</div>
 		</div>
 	</div>
