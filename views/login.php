@@ -109,6 +109,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <body>
     <div class="login-form">
+
+    <?php 
+        if (isset($_SESSION["register-msg"])) {
+            if ($_SESSION["register-msg"] === true) {
+                echo '<script>alert("User Registered Successfully!");</script>';
+            } else {
+                echo '<script>alert("User Registration Failed!");</script>';
+            }
+            unset($_SESSION["register-msg"]);
+        }
+    ?>
+
+
         <h2>Login</h2>
 
         <form action="http://localhost/Secure-CRUD/public/index.php?action=login" method="POST">

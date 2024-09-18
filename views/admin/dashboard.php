@@ -479,7 +479,7 @@
 						</div>
 						<div class="col-sm-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-									class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+									class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
 						</div>
 					</div>
 				</div>
@@ -493,9 +493,9 @@
 								</span>
 							</th>
 							<th>Name</th>
-							<th>email</th>
-							<th>role</th>
-							<th>tele</th>
+							<th>Catogary</th>
+							<th>price</th>
+							<th>image</th>
 						</tr>
 					</thead>
 					<tbody>

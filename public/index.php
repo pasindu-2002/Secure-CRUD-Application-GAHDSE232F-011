@@ -25,9 +25,11 @@ switch ($action) {
 
             $response = $userController->addUser($name, $email, $password, $role, $tele);
             if ($response) {
+                $_SESSION["register-msg"] = true;
                 header('Location: http://localhost/Secure-CRUD/');
                 exit;
             } else {
+                $_SESSION["register-msg"] = false;
                 header('Location: http://localhost/Secure-CRUD/public?action=signup');
                 exit;
             }
@@ -103,10 +105,10 @@ switch ($action) {
             if ($role == "user") {
                 include __DIR__ . '/../views/product.php';
             } elseif ($role == 'admin') {
-                include __DIR__ . '/../views/dashboard.php';
+                include __DIR__ . '/../views/admin/dashboard.php';
                 // If you have another view for admin, include it here or handle it as needed
             } elseif ($role == 'editor') { // Assuming 'editor' is a valid role
-                include __DIR__ . '/../views/edit.php';
+                include __DIR__ . '/../views/editor/edit.php';
             } else {
                 // Handle cases where the role is not recognized
                 include __DIR__ . '/../views/404.php'; // Example of a fallback page

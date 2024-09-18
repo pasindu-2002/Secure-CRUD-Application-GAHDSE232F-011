@@ -13,8 +13,10 @@
         // Add a new user
         public function addUser($name, $email, $password, $role, $tele) {
             if ($this->userModel->addUser($name, $email, $password, $role, $tele)) {
+               
                 return true;
             } else {
+               
                 return false;
             }
         }
