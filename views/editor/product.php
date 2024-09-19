@@ -471,7 +471,7 @@ if (!isset($_SESSION['user_id'])) {
 				<a href="http://localhost/Secure-CRUD/public/index.php?action=dashboard_product"><i class="fas fa-home"></i> Product</a>
 			</li>
 
-			<li >
+			<li>
 				<a href="http://localhost/Secure-CRUD/public/index.php?action=dashboard_users"><i
 						class="fas fa-user-friends"></i> Users</a>
 			</li>
@@ -490,8 +490,7 @@ if (!isset($_SESSION['user_id'])) {
 							<h2>Manage <b>Product</b></h2>
 						</div>
 						<div class="col-sm-6">
-							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-									class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+						<a href = "http://localhost/Secure-CRUD/public/index.php?action=logout" class="btn btn-danger" >Logout</a>
 						</div>
 					</div>
 				</div>

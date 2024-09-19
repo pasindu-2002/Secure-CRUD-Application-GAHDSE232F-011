@@ -460,7 +460,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-
 	<!-- Sidebar -->
 	<nav id="sidebar">
 		<div class="sidebar-header">
@@ -468,7 +467,7 @@ if (!isset($_SESSION['user_id'])) {
 		</div>
 		<ul class="components">
 			<li>
-				<a href="dashboard.php"><i class="fas fa-home"></i> Product</a>
+				<a href="http://localhost/Secure-CRUD/public/index.php?action=dashboard_product"><i class="fas fa-home"></i> Product</a>
 			</li>
 
 			<li class="active">
@@ -492,7 +491,12 @@ if (!isset($_SESSION['user_id'])) {
 						<div class="col-sm-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
 									class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+
+									<a href = "http://localhost/Secure-CRUD/public/index.php?action=logout" class="btn btn-danger" >Logout</a>
 						</div>
+
+
+
 					</div>
 				</div>
 				<table class="table table-striped table-hover">
@@ -849,6 +853,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
 	</script>
+
 
 </body>
 

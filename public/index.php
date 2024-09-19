@@ -125,7 +125,7 @@ switch ($action) {
                 include __DIR__ . '/../views/admin/product.php';
                 // If you have another view for admin, include it here or handle it as needed
             } elseif ($role == 'editor') { // Assuming 'editor' is a valid role
-                include __DIR__ . '/../views/editor/edit.php';
+                include __DIR__ . '/../views/editor/product.php';
             } else {
                 // Handle cases where the role is not recognized
                 include __DIR__ . '/../views/404.php'; // Example of a fallback page
@@ -141,6 +141,12 @@ switch ($action) {
         if (isset($_SESSION['user_id'])) {
             include __DIR__ . '/../views/admin/users.php';
         }
+
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /Secure-CRUD/");
+            exit; // Ensure script execution stops after redirection
+        }
+        
         break;
 
     case 'dashboard_product':
@@ -148,6 +154,12 @@ switch ($action) {
         if (isset($_SESSION['user_id'])) {
             include __DIR__ . '/../views/admin/product.php';
         }
+
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /Secure-CRUD/");
+            exit; // Ensure script execution stops after redirection
+        }
+        
         break;
 
     case 'updateStatus':
