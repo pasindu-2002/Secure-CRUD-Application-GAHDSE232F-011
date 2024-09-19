@@ -41,18 +41,36 @@
         public function updateUser($id, $name, $email, $password, $role, $tele) {
             $result = $this->userModel->updateUser($id, $name, $email, $password, $role, $tele);
             if ($result) {
-                return ['status' => 'success', 'message' => 'User updated successfully'];
+                return true;
             } else {
-                return ['status' => 'error', 'message' => 'Failed to update user'];
+                return false;
             }
         }
 
         // Delete a user
         public function deleteUser($id) {
             if ($this->userModel->delete($id)) {
-                return ['status' => 'success', 'message' => 'User deleted successfully'];
+                return true;
             } else {
-                return ['status' => 'error', 'message' => 'Failed to delete user'];
+                return false;
+            }
+        }
+
+        public function lockUser($id) {
+            $result = $this->userModel->updateStatusLocked($id);
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function activateUser($id) {
+            $result = $this->userModel->updateStatusActive($id);
+            if ($result) {
+                return true;
+            } else {
+                return false;
             }
         }
     }

@@ -1,3 +1,16 @@
+<?php 
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Secure-CRUD/");
+    exit; // Ensure script execution stops after redirection
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -459,7 +472,7 @@
 			</li>
 
 			<li>
-				<a href="users.php"><i class="fas fa-user-friends"></i> Users</a>
+				<a href="http://localhost/Secure-CRUD/public/index.php?action=dashboard_users"><i class="fas fa-user-friends"></i> Users</a>
 			</li>
 
 			<li>

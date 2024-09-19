@@ -88,6 +88,22 @@ class User {
         return $stmt->execute();
     }
 
+
+    public function updateStatusActive($id) {
+        $query = "UPDATE " . $this->table_name . " SET failed_attempts = 0, last_attempt = NULL WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+    public function updateStatusLocked($id) {
+        $query = "UPDATE " . $this->table_name . " SET failed_attempts = 4 WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
+
     // Delete a user
     public function delete($id) {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
