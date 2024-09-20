@@ -52,6 +52,13 @@ The **Secure CRUD Application** is a web-based application designed to perform C
 - **Content Security Policy**: Implemented to mitigate XSS attacks.
 - **HTTPS**: Ensure secure transmission of data over the network.
 
+
+## Acknowledgments
+
+- Thanks to [OWASP](https://owasp.org) for their comprehensive security guidelines.
+- Special thanks to the open-source community for their support and resources.
+
+
   
 ## Links
 
