@@ -25,3 +25,20 @@ The **Secure CRUD Application** is a web-based application designed to perform C
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/secure-crud.git
+
+   Navigate to the project directory:
+
+Navigate to the project directory:
+
+bash
+Copy code
+cd secure-crud
+Set up the database:
+
+Create a MySQL database and import the provided SQL file.
+Configure database connection:
+
+Update the database configuration in config.php.
+Start the server:
+
+Use WAMP or any local server to run the application.
