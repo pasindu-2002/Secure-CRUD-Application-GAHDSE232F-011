@@ -39,6 +39,20 @@ The **Secure CRUD Application** is a web-based application designed to perform C
 5. Set up the database:
      - Use WAMP or any local server to run the application.
   
+## Usage
+
+- Visit `http://localhost/secure-crud` in your web browser.
+- Register a new account or log in with existing credentials.
+- Perform CRUD operations on the available resources.
+
+## Security Measures
+
+- **Input Validation**: All user inputs are validated and sanitized.
+- **Prepared Statements**: SQL queries are executed using prepared statements to prevent SQL injection.
+- **Content Security Policy**: Implemented to mitigate XSS attacks.
+- **HTTPS**: Ensure secure transmission of data over the network.
+
+  
 ## Links
 
 - **GitHub Repository**: [Secure CRUD Application](https://github.com/pasindu-2002/Secure-CRUD-Application-GAHDSE232F-011)
