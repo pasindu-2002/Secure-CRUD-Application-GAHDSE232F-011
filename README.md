@@ -38,4 +38,10 @@ The **Secure CRUD Application** is a web-based application designed to perform C
 
 5. Set up the database:
      - Use WAMP or any local server to run the application.
+  
+## Links
+
+- **GitHub Repository**: [Secure CRUD Application](https://github.com/pasindu-2002/Secure-CRUD-Application-GAHDSE232F-011)
+- **Project Website**: [Secure CRUD Application Website](https://www.yourprojectwebsite.com)
+
 
