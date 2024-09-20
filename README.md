@@ -30,3 +30,12 @@ The **Secure CRUD Application** is a web-based application designed to perform C
    ```bash
    cd secure-crud
 
+3. Configure database connection:
+  - **Update the database configuration in (config.php).
+
+4. Set up the database:
+  - **Create a MySQL database and import the provided SQL file.
+
+5. Set up the database:
+  - **Use WAMP or any local server to run the application.
+
