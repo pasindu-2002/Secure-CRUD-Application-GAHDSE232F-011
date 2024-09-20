@@ -37,6 +37,33 @@
             }
         }
 
+        public function findUserByEmail($email) {
+            $user = $this->userModel->findUserByEmail($email);
+            
+            if ($user) {
+                return $user; // User found
+            } else {
+                return false; // User not found
+            }
+        }
+
+        public function savePasswordResetToken($email, $token) {
+            $user = $this->userModel->findUserByEmail($email);
+            if ($user) {
+        
+                $expires = date('Y-m-d H:i:s', strtotime('+1 hour')); // Set expiration to 1 hour from now
+    
+                if ($this->userModel->savePasswordResetToken($email, $token, $expires)) {
+                    // Send email with the reset link
+                    $resetLink = "http://localhost/Secure-CRUD/public/index.php?action=resetPassword&token=" . $token;
+                    $this->savePasswordResetToken($email, $resetLink);
+                    return $user; // Success
+                }
+            }
+            return false; // User not found or failed to save token
+        }
+        
+
         // Update a user
         public function updateUser($id, $name, $email, $password, $role, $tele) {
             $result = $this->userModel->updateUser($id, $name, $email, $password, $role, $tele);
@@ -46,6 +73,22 @@
                 return false;
             }
         }
+
+        public function findUserByResetToken($token) {
+            return $this->userModel->findUserByResetToken($token);
+        }
+    
+        // Update user's password
+        public function updatePassword($userId, $newPassword) {
+            return $this->userModel->updatePassword($userId, $newPassword);
+        }
+    
+        // Clear reset token after successful password reset
+        public function clearResetToken($userId) {
+            return $this->userModel->clearResetToken($userId);
+        }
+
+
 
         // Delete a user
         public function deleteUser($id) {

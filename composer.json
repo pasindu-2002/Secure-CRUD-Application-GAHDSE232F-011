@@ -11,5 +11,8 @@
             "email": "87941322+pasindu-2002@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "ramsey/uuid": "^4.2"
+    }
 }

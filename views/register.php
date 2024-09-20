@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #48C9B0, #3498DB); /* Blue to green gradient */
             font-family: 'Varela Round', sans-serif;
         }
         .register-form {

@@ -111,6 +111,49 @@ class User {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
+    public function findUserByEmail($email) {
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        // Fetch the user data
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Returns user data or false if not found
+    }
+
+    public function savePasswordResetToken($email, $token, $expires) {
+        $stmt = $this->conn->prepare("UPDATE users SET reset_token = :token, token_expires = :expires WHERE email = :email");
+        $stmt->bindParam(':token', $token);
+        $stmt->bindParam(':expires', $expires);
+        $stmt->bindParam(':email', $email);
+        return $stmt->execute(); // Returns true on success
+    }
+
+    // Save the password reset token
+
+    // Find user by reset token
+    public function findUserByResetToken($token) {
+        $stmt = $this->conn->prepare("SELECT * FROM users WHERE reset_token = :token");
+        $stmt->bindParam(':token', $token);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);  // Return user data or false if not found
+    }
+
+    // Update the user's password
+    public function updatePassword($userId, $newPassword) {
+        $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);  // Hash the password
+        $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = :id");
+        $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':id', $userId);
+        return $stmt->execute();  // Return true if successful
+    }
+
+    // Clear the reset token after password reset
+    public function clearResetToken($userId) {
+        $stmt = $this->conn->prepare("UPDATE users SET reset_token = NULL WHERE id = :id");
+        $stmt->bindParam(':id', $userId);
+        return $stmt->execute();  // Return true if successful
+    }
 }
 
 ?>

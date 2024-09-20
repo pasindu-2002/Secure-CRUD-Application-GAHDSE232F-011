@@ -4,6 +4,17 @@ session_start(); // Start the session for user authentication
 
 require_once __DIR__ . '/../controllers/UserController.php';
 require_once __DIR__ . '/../controllers/AuthController.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Ramsey\Uuid\Uuid;
+
+// Load Composer's autoloader
+// Move up one directory to access vendor
+
+
+
 
 // Initialize controllers
 $userController = new UserController();
@@ -146,7 +157,7 @@ switch ($action) {
             header("Location: /Secure-CRUD/");
             exit; // Ensure script execution stops after redirection
         }
-        
+
         break;
 
     case 'dashboard_product':
@@ -159,7 +170,7 @@ switch ($action) {
             header("Location: /Secure-CRUD/");
             exit; // Ensure script execution stops after redirection
         }
-        
+
         break;
 
     case 'updateStatus':
@@ -184,6 +195,110 @@ switch ($action) {
             echo json_encode($response);
         }
         break;
+
+    case 'forgot_password':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+            if ($email) {
+                $userController = new UserController();
+                $user = $userController->findUserByEmail($email);
+
+                if ($user) {
+                    // Send the password reset email
+                    $token = Uuid::uuid4()->toString();  // Generate a unique token
+                    $userController->savePasswordResetToken($user['id'], $token);
+
+                    $resetLink = "http://localhost/Secure-CRUD/public/index.php?action=reset_password&token=" . $token;
+
+                    // Send email using PHPMailer (use the email code provided earlier)
+                    $mail = new PHPMailer(true);
+                    try {
+                        // SMTP settings for Gmail
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.gmail.com';   // Use Gmail SMTP server
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'ahperanga@gmail.com';    // Your Gmail email address
+                        $mail->Password = 'rbpm psmp jaym jyfw'; // Use App-Specific Password if 2FA is enabled
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
+                        $mail->Port = 587; // TLS port for Gmail
+
+                        $mail->setFrom('ahperanga@gmail.com', 'Secure CRUD App');
+                        $mail->addAddress($email);
+
+                        $mail->isHTML(true);
+                        $mail->Subject = 'Password Reset Request';
+                        $mail->Body = "Click this link to reset your password: <a href='$resetLink'>$resetLink</a>";
+
+                        $mail->send();
+                        echo 'Password reset link has been sent to your email.';
+                    } catch (Exception $e) {
+                        echo "Mailer Error: {$mail->ErrorInfo}";
+                    }
+                } else {
+                    echo 'Email not found.';
+                }
+            }
+        }
+        break;
+
+    case 'reset_password':
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            // Get the token from the URL
+            $token = isset($_GET['token']) ? $_GET['token'] : '';
+
+            if ($token) {
+                // Create a controller instance (assuming you have a UserController)
+                $userController = new UserController();
+
+                // Verify if the token exists and is valid (method to be implemented in the controller)
+                $user = $userController->findUserByResetToken($token);
+
+                if ($user) {
+                    // If the token is valid, display the reset password form
+                    include 'views/reset_password.php'; // A form to reset password
+                } else {
+                    // If the token is invalid, display an error
+                    echo 'Invalid or expired token.';
+                }
+            } else {
+                echo 'No token provided.';
+            }
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Process the reset password form submission
+            $token = isset($_POST['token']) ? $_POST['token'] : '';
+            $newPassword = isset($_POST['new_password']) ? $_POST['new_password'] : '';
+            $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+
+            if ($token && $newPassword && $confirmPassword) {
+                // Check if new password and confirm password match
+                if ($newPassword === $confirmPassword) {
+                    $userController = new UserController();
+                    $user = $userController->findUserByResetToken($token);
+
+                    if ($user) {
+                        // Update the user's password
+                        $userController->updatePassword($user['id'], $newPassword);
+
+                        // Clear the reset token after successful reset
+                        $userController->clearResetToken($user['id']);
+
+                        echo 'Password has been successfully reset. You can now login.';
+                    } else {
+                        echo 'Invalid token.';
+                    }
+                } else {
+                    echo 'Passwords do not match.';
+                }
+            } else {
+                echo 'All fields are required.';
+            }
+        }
+        break;
+
+
 
 
     default:
